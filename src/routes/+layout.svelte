@@ -6,9 +6,7 @@
 <header class="container-fluid">
     <div class="title-container">
         <div>
-            <Icon icon="fa-regular:hand-rock" />
-            <Icon icon="fa6-regular:hand" />
-            <Icon icon="fa6-regular:hand-scissors" />
+          <img class="logo" alt="rsp" src="/logo.png" />     
         </div>
         <h1>Rock... Paper... Victory!</h1>
     </div>
@@ -16,3 +14,13 @@
 <main class="container">
     <slot />
 </main>
+
+
+<style>
+
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+</style>
+

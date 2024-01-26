@@ -1,11 +1,15 @@
 <script lang="ts">
-	import { fly } from 'svelte/transition';
-	import Icon from '@iconify/svelte';
+	import GameOver from '$lib/components/GameOver.svelte';
+	import CardPc from '$lib/components/cards/CardPc.svelte';
+	import CardUser from '$lib/components/cards/CardUser.svelte';
+  
+  import {compareChoices} from '$lib/utility/utility'
 
 	let gameOver: boolean = false;
 	let userChoice: 'rock' | 'paper' | 'scissors' | '' = '';
 	let computerChoice: 'rock' | 'paper' | 'scissors' | '' = '';
 	let result = '';
+
 	const choices: ('rock' | 'paper' | 'scissors')[] = ['rock', 'paper', 'scissors'];
 	const icons = {
 		rock: 'fa-regular:hand-rock',
@@ -26,64 +30,27 @@
 		userChoice = '';
 	};
 
-	const compareChoices = (
-		user: 'rock' | 'paper' | 'scissors',
-		computer: 'rock' | 'paper' | 'scissors'
-	) => {
-		if (user === computer) {
-			return 'Pareggio!';
-		}
-		if (
-			(user === 'rock' && computer === 'scissors') ||
-			(user === 'paper' && computer === 'rock') ||
-			(user === 'scissors' && computer === 'paper')
-		) {
-			return 'Hai vinto!';
-		}
-		return 'Hai perso!';
-	};
-</script>
+	</script>
 
 <div class="game-container">
 	<div class="pc-container">
 		<p>PC</p>
 		<div class="cards">
-			<div class="card-pc">
-				<Icon icon={icons.rock} class={computerChoice === 'rock' ? 'choiced' : 'gray'} />
-			</div>
-			<div class="card-pc">
-				<Icon icon={icons.paper} class={computerChoice === 'paper' ? 'choiced' : 'gray'} />
-			</div>
-			<div class="card-pc">
-				<Icon icon={icons.scissors} class={computerChoice === 'scissors' ? 'choiced' : 'gray'} />
-			</div>
+			<CardPc icon={icons.rock} value="rock" {computerChoice} />
+			<CardPc icon={icons.paper} value="paper" {computerChoice} />
+			<CardPc icon={icons.scissors} value="scissors" {computerChoice} />
 		</div>
 	</div>
 	<div>VS</div>
 	<div class="user-container">
 		<div class="cards">
-			<button
-				class={`user-card ${userChoice === 'rock' ? 'user-choiced' : ''}`}
-				disabled={gameOver}
-				on:click={() => onClicked('rock')}><Icon icon="fa-regular:hand-rock" /></button
-			>
-			<button
-				class={`user-card ${userChoice === 'paper' ? 'user-choiced' : ''}`}
-				disabled={gameOver}
-				on:click={() => onClicked('paper')}><Icon icon="fa6-regular:hand" /></button
-			>
-			<button
-				class={`user-card ${userChoice === 'scissors' ? 'user-choiced' : ''}`}
-				disabled={gameOver}
-				on:click={() => onClicked('scissors')}><Icon icon="fa6-regular:hand-scissors" /></button
-			>
+			<CardUser {userChoice} value="rock" icon={icons.rock} {gameOver} onClicked={onClicked} />
+			<CardUser {userChoice} value="paper" icon={icons.paper} {gameOver} onClicked={onClicked} />
+			<CardUser {userChoice} value="scissors" icon={icons.scissors} {gameOver} onClicked={onClicked} />
 		</div>
 		<p>USER</p>
 	</div>
 </div>
 {#if gameOver}
-	<div class="result-container" in:fly={{ y: 200, duration: 2000 }} out:fly={{ y: 200 }}>
-		<p>{result}</p>
-		<button on:click={resetGame}>play again!</button>
-	</div>
+	<GameOver {result} {resetGame} />
 {/if}
