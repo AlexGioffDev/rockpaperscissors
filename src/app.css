@@ -1,216 +1,215 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 /* Indigo Light scheme (Default) */
 /* Can be forced with data-theme="light" */
-[data-theme="light"],
-:root:not([data-theme="dark"]) {
-  --primary: #3949ab;
-  --primary-hover: #303f9f;
-  --primary-focus: rgba(57, 73, 171, 0.125);
-  --primary-inverse: #FFF;
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+	--primary: #3949ab;
+	--primary-hover: #303f9f;
+	--primary-focus: rgba(57, 73, 171, 0.125);
+	--primary-inverse: #fff;
 }
 
 /* Indigo Dark scheme (Auto) */
 /* Automatically enabled if user has Dark mode enabled */
 @media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --primary: #3949ab;
-    --primary-hover: #3f51b5;
-    --primary-focus: rgba(57, 73, 171, 0.25);
-    --primary-inverse: #FFF;
-  }
+	:root:not([data-theme]) {
+		--primary: #3949ab;
+		--primary-hover: #3f51b5;
+		--primary-focus: rgba(57, 73, 171, 0.25);
+		--primary-inverse: #fff;
+	}
 }
 
 /* Indigo Dark scheme (Forced) */
 /* Enabled if forced with data-theme="dark" */
-[data-theme="dark"] {
-  --primary: #3949ab;
-  --primary-hover: #3f51b5;
-  --primary-focus: rgba(57, 73, 171, 0.25);
-  --primary-inverse: #FFF;
+[data-theme='dark'] {
+	--primary: #3949ab;
+	--primary-hover: #3f51b5;
+	--primary-focus: rgba(57, 73, 171, 0.25);
+	--primary-inverse: #fff;
 }
 
 /* Indigo (Common styles) */
 :root {
-  --form-element-active-border-color: var(--primary);
-  --form-element-focus-color: var(--primary-focus);
-  --switch-color: var(--primary-inverse);
-  --switch-checked-background-color: var(--primary);
+	--form-element-active-border-color: var(--primary);
+	--form-element-focus-color: var(--primary-focus);
+	--switch-color: var(--primary-inverse);
+	--switch-checked-background-color: var(--primary);
 }
-
 
 *::after,
 *::before,
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
 }
 
 body {
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
 }
 
 /* HEADER */
 
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 0;
 }
 
-
 header h1 {
-  margin: 0;
-  font-size: 1.4rem;
+	margin: 0;
+	font-size: 1.4rem;
 }
 
 .title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0rem;
 }
 
 .title-container div {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	justify-content: center;
 }
 
 .title-container h1 {
-  color: var(--primary);
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
+	color: var(--primary);
+	font-size: 1.5rem;
+	font-weight: 600;
+	text-transform: uppercase;
 }
 
 /* GAME CONTAINER */
 .game-container {
-  margin: 1rem auto 0px auto;
-  max-width: 90%;
-  min-height: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: .4rem;
+	margin: 1rem auto 0px auto;
+	max-width: 90%;
+	min-height: 320px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
 }
 
 @media only screen and (min-width: 810px) and (orientation: landscape) {
-  .game-container {
-      gap:0rem;
-      margin: .4rem auto 0px auto;
-  }
-  
+	.game-container {
+		gap: 0rem;
+		margin: 0.4rem auto 0px auto;
+	}
 
+	.pc-container p,
+	.user-container p {
+		font-size: 1.8rem;
+	}
 }
 
 .gray {
-  transform: scale(0.8);
-  filter: grayscale(100%);
-  transition: all 0.5s ease-in;
+	transform: scale(0.8);
+	filter: grayscale(100%);
+	transition: all 0.5s ease-in;
 }
 
 .choiced {
-  transform: scale(1);
-  filter: grayscale(0);
-  color: var(--primary);
-  transition: all 0.5s ease-in;
+	transform: scale(1);
+	filter: grayscale(0);
+	color: var(--primary);
+	transition: all 0.5s ease-in;
 }
 
 .pc-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.2rem;
 }
 
 .pc-container p,
 .user-container p {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--primary);
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: var(--primary);
 }
 .pc-container .cards {
-  display: flex;
-  gap: 1rem;
+	display: flex;
+	gap: 1rem;
 }
 
-
-
 .pc-container .cards svg {
-  font-size: 3rem;
+	font-size: 3rem;
 }
 
 .card-pc {
-  border: 1px solid var(--primary);
-  border-radius: 14px;
-  padding: 1rem;
+	border: 1px solid var(--primary);
+	border-radius: 14px;
+	padding: 1rem;
 }
 
 .user-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .user-container .cards {
-  display: flex;
-  gap: 1rem;
+	display: flex;
+	gap: 1rem;
 }
 
 button.user-card {
-  padding: 1rem;
-  border-radius: 14px;
-  background-color: var(--white);
-  transition: all 0.5s ease-in;
+	padding: 1rem;
+	border-radius: 14px;
+	background-color: var(--white);
+	transition: all 0.5s ease-in;
 }
 
 .user-container svg {
-  transform: scale(0.8);
-  font-size: 3rem;
-  color: var(--primary);
-  transition: all 0.5s ease-in;
+	transform: scale(0.8);
+	font-size: 3rem;
+	color: var(--primary);
+	transition: all 0.5s ease-in;
 }
 
 button.user-card.user-choiced[disabled] {
-  background-color: var(--primary);
-  opacity: 1;
-  transition: all 0.5s ease-in;
+	background-color: var(--primary);
+	opacity: 1;
+	transition: all 0.5s ease-in;
 }
 
-button.user-card.user-choiced svg{
-  color: var(--white);
-  transform: scale(1);
-  transition: all 0.5s ease-in;
+button.user-card.user-choiced svg {
+	color: var(--white);
+	transform: scale(1);
+	transition: all 0.5s ease-in;
 }
 
 .result-container {
-  width: 60%;
-  margin: -10px auto 0px;
-  display:  flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	width: 60%;
+	margin: -20px auto 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .result-container p {
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--primary);
-  margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 2rem;
+	font-weight: bold;
+	color: var(--primary);
+	margin: 0;
 }
 
 .result-container button {
-  text-transform: uppercase;
-  font-weight: bold;
+	text-transform: uppercase;
+	font-weight: bold;
 }

@@ -1,6 +1,5 @@
 <script lang="ts">
     import '../app.css';
-    import Icon from '@iconify/svelte'
 </script>
 
 <header class="container-fluid">

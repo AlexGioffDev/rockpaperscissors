@@ -23,7 +23,7 @@
 		result = compareChoices(userChoice, computerChoice);
 		gameOver = true;
 	};
-
+  
 	const resetGame = () => {
 		gameOver = false;
 		computerChoice = '';
